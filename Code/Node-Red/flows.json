@@ -1,0 +1,210 @@
+[
+    {
+        "id": "1ffec239.a7c0fe",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "407a01e4.6b637",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqttdashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "612bb065.90892",
+        "type": "ui_tab",
+        "name": "Projeto IOT para irrigação",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3150a646.88e97a",
+        "type": "ui_group",
+        "name": "Status da planta",
+        "tab": "612bb065.90892",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "71f82d277e2a8ba4",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "be80048.8f232f8",
+        "type": "mqtt in",
+        "z": "1ffec239.a7c0fe",
+        "name": "",
+        "topic": "jardim/bomba",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "407a01e4.6b637",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "8640b8ff.f82ff8",
+                "613782ca.e74a7c"
+            ]
+        ]
+    },
+    {
+        "id": "8640b8ff.f82ff8",
+        "type": "debug",
+        "z": "1ffec239.a7c0fe",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "613782ca.e74a7c",
+        "type": "ui_template",
+        "z": "1ffec239.a7c0fe",
+        "group": "3150a646.88e97a",
+        "name": "",
+        "order": 1,
+        "width": "7",
+        "height": "10",
+        "format": "<div ng-if=\"msg.payload === 1\" style=\"\n    background-color: #f4f4f4; \n    color: #333; \n    text-align: center; \n    padding: 30px; \n    font-family: 'Segoe UI', sans-serif; \n    height: 100vh;\">\n\n    <h2 style=\"color: #007ACC;\">Status da planta</h2>\n    <h1 style=\"color: #cc0000;\">Solo seco</h1>\n\n    <div style=\"\n        width: 120px; \n        height: 120px; \n        background: radial-gradient(circle at 30% 30%, #ff6666, #cc0000); \n        border-radius: 50%; \n        margin: 20px auto; \n        box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);\">\n    </div>\n</div>\n\n<div ng-if=\"msg.payload === 0\" style=\"\n    background-color: #1c1c1c; \n    color: #ffffff; \n    text-align: center; \n    padding: 30px; \n    font-family: 'Segoe UI', sans-serif; \n    height: 100vh;\">\n\n    <h2 style=\"color: #33ccff;\">Status da planta</h2>\n    <h1 style=\"color: #00cc44;\">Solo úmido</h1>\n\n    <div style=\"\n        width: 120px; \n        height: 120px; \n        background: radial-gradient(circle at 30% 30%, #00ff66, #007e33); \n        border-radius: 50%; \n        margin: 20px auto; \n        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);\">\n    </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 400,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    }
+]
